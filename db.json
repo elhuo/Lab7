@@ -1,9 +1,29 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "author": "aaaa",
+      "title": "ADSDA",
+      "id": 1
+    },
+    {
+      "author": "bob",
+      "title": "pizza",
+      "id": 3
+    },
+    {
+      "author": "ere",
+      "title": "erer",
+      "id": 4
+    },
+    {
+      "author": "hehehe",
+      "title": "asldlasdkl",
+      "id": 5
+    },
+    {
+      "author": "hsdh",
+      "title": "sdjsdjsjd",
+      "id": 6
     }
   ],
   "comments": [
