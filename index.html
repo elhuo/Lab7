@@ -117,16 +117,7 @@
         });
 
     }
-    function status(response) {
-      if (response.status !== 200) {
-        document.getElementById('output').textContent = 'Network Error: ' + response.status;
-        return;
-      }
 
-      response.json().then(function (data) {
-        document.getElementById('output').textContent = JSON.stringify(data);
-      });
-    }
     // This function should use fetch to create one entry in the given endpoint.
     // From the 4 CRUD actions, this is the CREATE action, and uses the POST http method.
     // The main difference from updateRecord() will be the URL you send data to; check
@@ -134,7 +125,8 @@
     function createRecord(type) {
       // TODO
       let endpoint = document.getElementById("endpoint");
-
+      let author = document.getElementById("author");
+      let title = document.getElementById("title");
       let recordId = document.getElementById("recordID");
       if (type == "show") {
         document.getElementById('recordIDcontainer').style.display = 'none';
@@ -143,10 +135,6 @@
         title.value = "";
       }
       else if (type == "submit") {
-
-        let author = document.getElementById('author');
-        let title = document.getElementById('title');
-
         fetch(endpoint.value, {
           method: "POST",
           headers: {
@@ -155,7 +143,7 @@
           body: `{
             "author": "${author.value}",
             "title": "${title.value}"
-          }`,
+          }`
         })
           .then(response => status(response))
           .then(response => response.json()).then(data => {
@@ -164,7 +152,7 @@
             //output.textContent = error;
             console.log('Fetch Error :-S', err);
           })
-      }
+      } 
     }
 
     // This function should use fetch to update one existing entry in the given endpoint.
@@ -175,6 +163,8 @@
       // TODO
       let endpoint = document.getElementById("endpoint");
       let recordId = document.getElementById("recordID");
+      let author = document.getElementById("author");
+      let title = document.getElementById("title");
       if (type == "show") {
         document.getElementById("recordForm").style.display = "block";
         document.getElementById("recordIDcontainer").style.display = "block";
@@ -183,10 +173,6 @@
         recordId.value = "";
       }
       else if (type == "submit") {
-
-        let author = document.getElementById('author');
-        let title = document.getElementById('title');
-
         fetch(endpoint.value + `/${recordId.value}`, {
           method: "PUT",
           headers: {
@@ -232,6 +218,16 @@
           console.log('Fetch Error :-S', err);
         });
 
+    }
+    function status(response) {
+      if (response.status !== 200 && response.status !== 201) {
+        document.getElementById('output').textContent = 'Network Error: ' + response.status;
+        return;
+      }
+
+      response.json().then(function (data) {
+        document.getElementById('output').textContent = JSON.stringify(data);
+      });
     }
 
     window.addEventListener('DOMContentLoaded', () => {
