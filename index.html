@@ -81,8 +81,10 @@
     function fetchAll() {
       // TODO
       let endpoint = document.getElementById("endpoint");
+      let output = document.getElementById("output");
       document.getElementById('recordForm').style.display = 'none';
       document.getElementById('recordIDcontainer').style.display = 'none';
+      output.textContent = "";
       fetch(endpoint.value)
         .then(response => status(response))
         .then(response => response.json())
@@ -102,8 +104,10 @@
     function fetchOne() {
       let endpoint = document.getElementById("endpoint");
       let recordId = document.getElementById("recordID");
+      let output = document.getElementById("output");
       document.getElementById('recordForm').style.display = 'none';
       document.getElementById('recordIDcontainer').style.display = 'none';
+      output.textContent = "";
       // TODO
       let num = window.prompt("Enter the record id");
       fetch(endpoint.value + `/${num}`)
@@ -128,6 +132,8 @@
       let author = document.getElementById("author");
       let title = document.getElementById("title");
       let recordId = document.getElementById("recordID");
+      let output = document.getElementById("output");
+      output.textContent = "";
       if (type == "show") {
         document.getElementById('recordIDcontainer').style.display = 'none';
         document.getElementById("recordForm").style.display = "block";
@@ -165,6 +171,8 @@
       let recordId = document.getElementById("recordID");
       let author = document.getElementById("author");
       let title = document.getElementById("title");
+      let output = document.getElementById("output");
+      output.textContent = "";
       if (type == "show") {
         document.getElementById("recordForm").style.display = "block";
         document.getElementById("recordIDcontainer").style.display = "block";
@@ -202,7 +210,8 @@
     function deleteRecord() {
       // TODO
       let endpoint = document.getElementById("endpoint");
-
+      let output = document.getElementById("output");
+      output.textContent = "";
       document.getElementById('recordForm').style.display = 'none';
       document.getElementById('recordIDcontainer').style.display = 'none';
       let num = window.prompt("Enter the record id");
