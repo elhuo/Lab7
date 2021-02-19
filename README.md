@@ -1,5 +1,5 @@
 # Lab7
-Ellie Huo
+Ellie Huo elhuo@ucsd.edu
 
 A15813598
 
